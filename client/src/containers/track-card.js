@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import { Link } from '@reach/router';
 
 /**
  * Track Card component renders basic info in a card format
@@ -11,7 +12,7 @@ const TrackCard = ({ track }) => {
   const { title, thumbnail, author, length, modulesCount } = track;
 
   return (
-    <CardContainer>
+    <CardContainer  to={`/tracl`}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail} alt={title} />
@@ -66,7 +67,7 @@ const CardContainer = styled('div')({
   textDecoration: 'none',
 });
 
-const CardContent = styled.div({
+const CardContent = styled.Link({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-around',
